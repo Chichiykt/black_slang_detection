@@ -1,0 +1,8 @@
+/dataset/
+/detect_category/temp.py
+/detect_category/train2detect_category.py
+/detect_judgment/train2detect_judgment.py
+/detect_label/train2detect_label.py
+/detect_level/train2detect_level.py
+/detect_level/temp.py
+/BlackTermsDataset.py
