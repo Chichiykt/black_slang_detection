@@ -1,0 +1,13 @@
+accelerate==1.13.0
+fastapi==0.128.0
+langchain-ollama==1.0.1
+langchain-core==1.2.6
+langchain-community==0.4.1
+numpy==1.26.4
+ollama==0.6.1
+peft==0.18.0
+pillow==10.4.0
+pydantic==2.12.5
+rich==14.2.0
+transformers==4.52.0
+trl==0.4.2

@@ -1,0 +1,8 @@
+{
+  "min_synonyms": 20,
+  "accuracy": 0.9956,
+  "sample_count": 10000,
+  "ball_count": 2256,
+  "outside_radius_count": 3858,
+  "multi_ball_count": 3879
+}

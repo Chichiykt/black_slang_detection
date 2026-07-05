@@ -1,0 +1,245 @@
+构建步骤
+1. 从github将整个项目结构download到本地。
+2. 使用dockerfile构建docker镜像。
+3. 镜像构建完成之后，从huggingface或者modelscope平台下载官方的deepseek-r1-distill-qwen1.5b模型
+    模型文件应放置在/app/base_model/
+4. 从modelscope拉取chichi1218/BlackSlangDetectionModelParams（基于Deepseek-R1-distill-qwen1.5b模型微调训练的模型参数）
+    - 这里面分为detect_label和detect_category两个子文件夹。
+    - 将detect_label中的model_dict文件夹保存到/app/detect_label下
+    - 将detect_category中的model_dict文件夹保存到/app/detect_category下
+5. 使用python main.py启动
+
+
+其他
+1. 由于涉及到需要LLM提供解释性，构建过程中会在docker中安装ollama+ 14b LLM，需要网络环境支持。
+2. 服务模型监听3306端口，和mysql默认端口一致，可在main.py中更改
+3. docker端口映射3306和8080可在镜像运行容器时更改。
+4. 由于需要利用LLM的语义理解能力和生成能力，至少保证服务器有40G+显存可用。其中必要的显存20G用来加载基座模型以获取LLM语义理解能力。另20G可使用API-KEY方式绕过。
+5. 展示训练数据集样例:
+    {
+    "id": "BH00007",
+    "split": "train",
+    "label": "suspicious",
+    "detect_label": 1,
+    "category": "brushing_fraud",
+    "risk_level": "high",
+    "emotion_tag": "利诱",
+    "sentiment_score": 0,
+    "arousal_score": 2,
+    "suspicion_score": 98,
+    "has_black_terms": 1,
+    "black_terms": "卡单;断单",
+    "dialogue": "A：你先别急。 A：这边招长期卡单，一单一结，做完就返。 B：要我先做什么？ A：你这边如果断单了，就要继续补一单才能走完。 B：能不能只做一单？ A：通常不行，这边要按任务链完成。  A：别在外面多说，照着做就行。",
+    "judgment": "高风险，黑话与异常语境高度吻合",
+    "rationale": "含刷单诈骗高频黑话，典型表现为先付费、卡单补单、断单恐吓与返现诱导。"
+  },{
+    "id": "BH06461",
+    "split": "train",
+    "label": "normal",
+    "detect_label": 0,
+    "category": "anti_fraud_education",
+    "risk_level": "low_or_contextual",
+    "emotion_tag": "理性",
+    "sentiment_score": 1,
+    "arousal_score": 2,
+    "suspicion_score": 1,
+    "has_black_terms": 1,
+    "black_terms": "倍投;车手",
+    "dialogue": "A：我大概明白你的情况了。 用户A：社区讲座提醒，遇到倍投要先核验。 用户B：最好第一时间求证，不要照着对方说的做。 用户A：像车手这种词也一样，出现时要格外小心。",
+    "judgment": "无明显黑话嫌疑",
+    "rationale": "虽然包含风险词，但整体语境为反诈宣传、培训或防骗提醒。"
+  }
+6. 训练数据集说明和任务说明：
+        行业黑话检测数据集（10000条，合成样本）详细说明
+
+        一、数据集概述
+        本数据集面向“行业黑话检测、分类、判别”任务构建，适合用于：
+        1. 黑话嫌疑检测（二分类）
+        2. 黑话细分类识别（多分类）
+        3. 风险判别与排序
+        4. 情绪与语境建模
+        5. 大模型指令微调或分类模型训练的原型验证
+
+        数据规模：
+        - 总量：10000
+        - 训练集：8000
+        - 验证集：1000
+        - 测试集：1000
+
+        标签体系：
+        1. 可疑类别（suspicious）
+           - loan_fraud：贷款诈骗/非法借贷语境
+           - brushing_fraud：刷单兼职诈骗语境
+           - romance_investment_fraud：交友投资/“杀猪盘”语境
+           - money_mule_laundering：跑分、洗钱、车手、水房等语境
+           - gambling_slang：博彩黑话语境
+           - refund_or_impersonation_fraud：退款诈骗、冒充客服、解冻验证等语境
+
+        2. 正常类别（normal）
+           - anti_fraud_education：反诈宣传、培训、科普
+           - daily_life_hard_negative：日常生活中的同形异义词
+           - legal_or_compliance_consultation：法律、合规、风险咨询
+           - normal_finance_or_service：正常金融、银行、客服服务
+           - research_or_annotation_discussion：数据标注、模型研究、任务讨论
+           - news_or_case_discussion：新闻报道、案例通报、风险复盘
+
+        --------------------------------------------------
+        二、字段说明
+        --------------------------------------------------
+
+        1. id
+        字段含义：
+        - 样本唯一编号，例如：
+
+        2. split
+        字段含义：
+        - 数据划分标记，取值为：
+          - train：训练集
+          - val：验证集
+          - test：测试集
+
+        3. label
+        字段含义：
+        - 主标签，取值为：
+          - suspicious：可疑样本
+          - normal：正常样本
+
+        4. detect_label
+        字段含义：
+        - 与 label 对应的数值标签：
+          - 1：可疑
+          - 0：正常
+
+        5. category
+        字段含义：
+        - 细分类别标签，用于描述样本所属的具体语境类型
+        - 例如：
+          - loan_fraud
+          - brushing_fraud
+          - gambling_slang
+          - daily_life_hard_negative
+          等
+
+        6. risk_level
+        字段含义：
+        - 风险层级标签，当前分为：
+          - high：高风险
+          - medium_high：中高风险
+          - low_or_contextual：低风险或依赖上下文判断
+
+        7. emotion_tag
+        字段含义：
+        - 对话所处的情绪/语境标签，例如：
+          - 利诱
+          - 施压
+          - 焦虑
+          - 催促
+          - 伪专业
+          - 拉近关系
+          - 规避
+          - 警示
+          - 科普
+          - 平静
+          - 讨论
+          等
+
+        8. sentiment_score
+        字段含义：
+        - 情绪极性分值，用于表示对话整体情绪倾向
+        - 数值范围大致在负向到正向之间（当前数据中为离散整数）
+
+
+        9. arousal_score
+        字段含义：
+        - 情绪激烈程度分值
+        - 分值越高，表示语气越紧张、催促、刺激或情绪波动越明显
+
+        10. suspicion_score
+        字段含义：
+        - 黑话嫌疑分，范围为 0~100
+        - 分值越高，表示样本越可疑
+
+        11. has_black_terms
+        字段含义：
+        - 是否命中黑话词表，表示样本中是否包含显式黑话词：
+          - 1：命中
+          - 0：未命中
+
+        12. black_terms
+        字段含义：
+        - 命中的黑话词列表，给出样本中的显式风险词，多个词之间以分号分隔
+        - 例如：背债;洗征信
+
+        13. dialogue
+        字段含义：
+        - 样本的核心对话文本
+        - 通常由多轮对话构成
+
+        14. judgment
+        字段含义：
+        - 基于综合标注信息给出的自然语言判别结论
+        - 例如：
+          - 高风险，黑话与异常语境高度吻合
+          - 较高风险，存在明显黑话嫌疑
+          - 低风险，需结合上下文复核
+          - 无明显黑话嫌疑
+
+        15. rationale
+        字段含义：
+        - 标注理由，对该样本为何被标为可疑或正常进行简要解释
+
+        三、字段之间的关系
+
+        可以将本数据集理解为一个多层标签系统：
+
+        1. 一级任务：检测
+        - 使用 label / detect_label
+        - 目标：判断是否存在行业黑话嫌疑
+
+        2. 二级任务：分类
+        - 使用 category
+        - 目标：判断属于哪一类风险场景或正常场景
+
+        3. 三级任务：判别
+        - 使用 risk_level、suspicion_score、judgment
+        - 目标：判断风险高低并输出判别结论
+
+        4. 辅助任务：情绪与语境建模
+        - 使用 emotion_tag、sentiment_score、arousal_score
+        - 目标：增强模型对交互氛围和操控策略的理解
+
+        5. 可解释任务
+        - 使用 black_terms、judgment、rationale
+        - 目标：帮助模型和人工审核人员理解“为什么这样判断”
+
+7. 任务说明中的分类任务1、分类任务2在验证集上的准确率高达98%+。
+8.  请求路径: /detect
+    请求参数: dialogue_str:str
+    请求方式: post
+    返回值:
+    {
+                "label": suspicious 或者 normal
+                "detect_label": 1 或者 0
+                "category":              "loan_fraud",
+                                         "money_mule_laundering",
+                                         "refund_or_impersonation_fraud",
+                                         "gambling_slang",
+                                         "romance_investment_fraud",
+                                         "brushing_fraud",
+                                         "legal_or_compliance_consultation",
+                                         "anti_fraud_education",
+                                         "normal_finance_or_service",
+                                         "daily_life_hard_negative",
+                                         "research_or_annotation_discussion",
+                                         "news_or_case_discussion"
+                "risk_level":
+                "emotion_tag":
+                "sentiment_score":
+                "arousal_score":
+                "suspicion_score":
+                "has_black_terms":
+                "black_terms":
+                "dialogue":
+                "judgment":
+                "rationale":
+    }

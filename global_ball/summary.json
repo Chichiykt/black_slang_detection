@@ -1,0 +1,50 @@
+[
+  {
+    "min_synonyms": 20,
+    "accuracy": 0.9956,
+    "sample_count": 10000,
+    "ball_count": 2256,
+    "outside_radius_count": 3858,
+    "multi_ball_count": 3879
+  },
+  {
+    "min_synonyms": 50,
+    "accuracy": 0.9939,
+    "sample_count": 10000,
+    "ball_count": 789,
+    "outside_radius_count": 4136,
+    "multi_ball_count": 3791
+  },
+  {
+    "min_synonyms": 100,
+    "accuracy": 0.9909,
+    "sample_count": 10000,
+    "ball_count": 324,
+    "outside_radius_count": 4568,
+    "multi_ball_count": 3649
+  },
+  {
+    "min_synonyms": 200,
+    "accuracy": 0.9927,
+    "sample_count": 10000,
+    "ball_count": 126,
+    "outside_radius_count": 4741,
+    "multi_ball_count": 3337
+  },
+  {
+    "min_synonyms": 500,
+    "accuracy": 0.9778,
+    "sample_count": 10000,
+    "ball_count": 36,
+    "outside_radius_count": 4718,
+    "multi_ball_count": 3120
+  },
+  {
+    "min_synonyms": 1000,
+    "accuracy": 0.9714,
+    "sample_count": 10000,
+    "ball_count": 18,
+    "outside_radius_count": 4497,
+    "multi_ball_count": 2959
+  }
+]

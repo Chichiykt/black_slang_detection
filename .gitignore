@@ -6,3 +6,6 @@
 /detect_level/train2detect_level.py
 /detect_level/temp.py
 /BlackTermsDataset.py
+/base_model/
+/detect_category/model_dict/
+/detect_label/model_dict/
