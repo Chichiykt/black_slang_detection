@@ -9,6 +9,38 @@
     - 将detect_category中的model_dict文件夹保存到/app/detect_category下
 5. 使用python main.py启动
 
+使用说明
+服务启动后，监听指定端口。
+    请求路径: /detect
+    请求参数: dialogue_str:str
+    请求方式: post
+    返回值:
+    {
+                "label": suspicious 或者 normal
+                "detect_label": 1 或者 0
+                "category":              "loan_fraud",
+                                         "money_mule_laundering",
+                                         "refund_or_impersonation_fraud",
+                                         "gambling_slang",
+                                         "romance_investment_fraud",
+                                         "brushing_fraud",
+                                         "legal_or_compliance_consultation",
+                                         "anti_fraud_education",
+                                         "normal_finance_or_service",
+                                         "daily_life_hard_negative",
+                                         "research_or_annotation_discussion",
+                                         "news_or_case_discussion"
+                "risk_level":
+                "emotion_tag":
+                "sentiment_score":
+                "arousal_score":
+                "suspicion_score":
+                "has_black_terms":
+                "black_terms":
+                "dialogue":
+                "judgment":
+                "rationale":
+    }
 
 其他
 1. 由于涉及到需要LLM提供解释性，构建过程中会在docker中安装ollama+ 14b LLM，需要网络环境支持。
@@ -213,33 +245,3 @@
         - 目标：帮助模型和人工审核人员理解“为什么这样判断”
 
 7. 任务说明中的分类任务1、分类任务2在验证集上的准确率高达98%+。
-8.  请求路径: /detect
-    请求参数: dialogue_str:str
-    请求方式: post
-    返回值:
-    {
-                "label": suspicious 或者 normal
-                "detect_label": 1 或者 0
-                "category":              "loan_fraud",
-                                         "money_mule_laundering",
-                                         "refund_or_impersonation_fraud",
-                                         "gambling_slang",
-                                         "romance_investment_fraud",
-                                         "brushing_fraud",
-                                         "legal_or_compliance_consultation",
-                                         "anti_fraud_education",
-                                         "normal_finance_or_service",
-                                         "daily_life_hard_negative",
-                                         "research_or_annotation_discussion",
-                                         "news_or_case_discussion"
-                "risk_level":
-                "emotion_tag":
-                "sentiment_score":
-                "arousal_score":
-                "suspicion_score":
-                "has_black_terms":
-                "black_terms":
-                "dialogue":
-                "judgment":
-                "rationale":
-    }
