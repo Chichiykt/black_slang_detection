@@ -1,0 +1,77 @@
+{
+  "run_id": "20261016_202012_376206_55ff90",
+  "started_at": "2026-10-16T20:20:12.378+08:00",
+  "dataset": "F:\\AIWorkspace\\Projects\\laya-jargon-benchmark\\data\\raw\\industry_slang_detection_dataset_10000.json",
+  "dataset_sha256": "e490737c904146e1dca5cf69e5392b3dee951e9d854454844b9275a3bc1963f7",
+  "config": "F:\\AIWorkspace\\Projects\\laya-jargon-benchmark\\configs\\choice_configs_risk_context.yaml",
+  "config_sha256": "ce24b77450030a47efe8b0aefc461739aa2354fb3bd9d33dda5b5421359735b2",
+  "config_id": "A",
+  "label_target": "risk_context",
+  "split": "test",
+  "seed": 42,
+  "samples": 1000,
+  "selected_samples_sha256": "f2a02accf81bb582e1173bc9f49b6543a5886fc08f3ac0093ae68e054d143be8",
+  "model": {
+    "path": "F:\\AIWorkspace\\Models\\laya-multilingual",
+    "sha256": {
+      "rl_agent_config.json": "25061739243b617ad88d1219ba6f8a9c86c5881ca28df024fa2d9b3b2fcc30c6",
+      "model.safetensors": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204",
+      "encoder/config.json": "83f6916d13ef0f556ac461f28308dc2bffa7ebeadee8ec9e2db5812020ea5bb4",
+      "tokenizer/tokenizer.json": "609d8f4c067cd3950f88594c5a802616cea245823836ef5848ee4fc40aab5b6f",
+      "tokenizer/tokenizer_config.json": "2c0c4d82d4b4bc6b4ac40b2375e067a1645f78b381a9774248d47915f33d751f",
+      "config.json": "7add7c041b53f7091e65908553af79ab3f077946e5f2312d510ae13b17c7c134"
+    },
+    "revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+    "config": {
+      "encoder": "jhu-clsp/mmBERT-base",
+      "head_layers": 2,
+      "max_len": 1024,
+      "head_max_len": 256,
+      "max_prefixes": 6,
+      "act_costs": {
+        "escalate": 0.5
+      },
+      "cost_wrong_act": 3.0,
+      "amp_dtype": "bf16",
+      "model_name": "rl-agent",
+      "temperature": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "temperature_by_options": {},
+      "training": {
+        "updates": 15987,
+        "epochs_completed": 4,
+        "hours": 4.97,
+        "world_size": 1,
+        "fine_tuned_from_checkpoint": false
+      }
+    }
+  },
+  "device": "cuda",
+  "code_sha256": {
+    "src\\__init__.py": "1d5a1d6006d3e1fe8d658cf1dce2691c0430a179efd4047371d628457a6d42cf",
+    "src\\config.py": "6b52ccc6897a0b6a218a2d19b64e3c9e6b8576ae3a26828e07dc12bf2f93a029",
+    "src\\dataset.py": "2fad64d2ce5d03d2418a829e44f8c8f9834a8d1eacad81414cc2df1b015730cb",
+    "src\\error_analysis.py": "0d60e41c9afdd7cd3315a9e10d057f5bea2a0eef0ac766ad3737d80cff957d33",
+    "src\\experiments.py": "abf22a55691d5db8d703f8e0c047ecfcd8e3fdfc18d52c23ca0f1815a4951da9",
+    "src\\metrics.py": "f6178cd3f7c4e9772c62837c4381a51f8fb997642f6c1f78fd6d8681ff31e5ee",
+    "src\\model_loader.py": "751cf1b43373ae60225fae16e222debc9b88947737b0852a52614768ce9c7495",
+    "src\\predictor.py": "fff271f5be71fbc7d545cd587b879491e26162d5c260cbfb59e990db851642ad",
+    "src\\visualization.py": "108e5ba96a11d592310c95a19f27fcca9228a578a9b156968d95379a9ccba822",
+    "scripts\\analyze_before_after.py": "61c607014a1396442dfcfddc6c948ff561187c305afae27e813a94dfb82cca91",
+    "scripts\\analyze_option_tokens.py": "1d52194df8dec1b90d984c20078e1ff84193b0a7f617b0ba713315c2533a3944",
+    "scripts\\audit_design.py": "320249a66c36ca1af7b338c15a5af0201ff2bee6f4867b7d6280b9717350898c",
+    "scripts\\check_environment.py": "041aa29103c58615dc3f3b99ed90334df14205875ad2fce8aad5576098644b88",
+    "scripts\\prepare_dataset.py": "57bf1dc48a2ed8239186facebc64d1ed2b7f046eaad13b3be7d2c67b8bd0b491",
+    "scripts\\prepare_presence_review.py": "e26f109f8cc4deb71840fc361f625b357d5b0057fa24b21cb35b935e5dd76df8",
+    "scripts\\run_benchmark.py": "6ef5e7b32f4595d4bd5b81f225a8745e9013729e12a4224879937f3923092996",
+    "scripts\\smoke_test.py": "f8256ff8cb97c673f2834d754be6f1b7d4421846c7ac6c12240813e78642a09f",
+    "scripts\\summarize_context_revision.py": "0fcdce7bbe78a23b2a4aed546eafac7b4f7f09c2be4a1f3a604dff8f43e9fa71",
+    "scripts\\summarize_length_trials.py": "d9e824a10cc2fec0be2743bfe4ba228c28c8b43cbf6df0c753c69890ddffcd7a",
+    "scripts\\summarize_prompt_trials.py": "dacffae6ab7fff74e96799cb9d61f46028289e09e9eabfe77e89875852d37c76",
+    "scripts\\summarize_test_length_trials.py": "452cf15af93ea1000b9eb5f25d49575e5742c1a70d96d4989e9af928d68d3d34",
+    "scripts\\test_model_with_logs.py": "cfe3d15aa7a63cebcdc5bf9882fef1a32bd52644da19b6014f59357ef528f443"
+  }
+}

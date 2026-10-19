@@ -1,0 +1,17 @@
+{
+  "algorithm": "sha256",
+  "created_at": "2026-10-16T20:20:49.269+08:00",
+  "note": "Local consistency checks, not a third-party authenticity signature.",
+  "sha256": {
+    "config_snapshot.json": "f42024883b579f9eb8a51ea4c3be197ac6e4b05942801ad4af44a178bc5ed797",
+    "dataset_quality.json": "bf6f5b9d64cee5d42c9661105b55bab374f2994bd28e2bba7d0b43d508d9f451",
+    "environment.json": "9bba9bddd6abe56a1cdcc4e13098ebec5cf7e1a668f3fd46a731dbc54466d21c",
+    "manifest.json": "096661fc2b3a24694c65f4b666f46d9c6a47bb1071ef67ee3604f1fefd7beb94",
+    "metrics.json": "9f19f9b48f2e0b85e4be65edd2ec4ff349ceb9137a0d61db4edade66607d86b6",
+    "predictions.jsonl": "f88da4896e9e3b0c8a59620350b291f8b9f8c6e07cd0505e7c39de62a41baf72",
+    "selected_samples.jsonl": "f2a02accf81bb582e1173bc9f49b6543a5886fc08f3ac0093ae68e054d143be8",
+    "status.json": "3cc68be963d5dd52353b6069f97b6959ab39e215cd73742db106dd87ef93c8cd",
+    "summary.md": "4dbd4bccde6d7dcc580da735f2e9add870d8100058e7a4f5fe4730971570c1e1",
+    "test.log": "d1212bc43253bec32d54819dd3fba262293e6409d18ad648db37811b609cab54"
+  }
+}

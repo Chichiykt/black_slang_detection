@@ -1,0 +1,1608 @@
+{
+  "record_type": "curated_examples_from_saved_real_model_run",
+  "compiled_at": "2026-10-16T21:25:43+08:00",
+  "source_run": "outputs/logged_tests/20261016_202012_376206_55ff90",
+  "source_predictions_sha256": "f88da4896e9e3b0c8a59620350b291f8b9f8c6e07cd0505e7c39de62a41baf72",
+  "selection_note": "Sixteen correct and two incorrect examples deliberately selected for presentation, not a random sample or a separate evaluation score.",
+  "full_test_metrics": {
+    "samples": 1000,
+    "normal": 390,
+    "jargon": 610,
+    "accuracy": 0.719,
+    "precision": 0.8097928436911488,
+    "recall": 0.7049180327868853,
+    "f1": 0.7537248028045574,
+    "macro_f1": 0.7133001196793451,
+    "confusion_matrix": [
+      [
+        289,
+        101
+      ],
+      [
+        180,
+        430
+      ]
+    ],
+    "matrix_labels": [
+      "normal",
+      "jargon"
+    ],
+    "tn": 289,
+    "fp": 101,
+    "fn": 180,
+    "tp": 430,
+    "undefined_metrics": [],
+    "note": "",
+    "macro_f1_convention": "fixed two labels; undefined per-label F1 contributes zero"
+  },
+  "verification": {
+    "original_artifact_sha256_matches": {
+      "config_snapshot.json": true,
+      "dataset_quality.json": true,
+      "environment.json": true,
+      "manifest.json": true,
+      "metrics.json": true,
+      "predictions.jsonl": true,
+      "selected_samples.jsonl": true,
+      "status.json": true,
+      "summary.md": true,
+      "test.log": true
+    },
+    "samples_aligned_with_original_test": 1000,
+    "raw_sdk_and_parsed_predictions_consistent": 1000,
+    "console_result_records_equal_predictions": true,
+    "complete_log_bytes_embedded_in_original_summary": true,
+    "dataset_and_config_match_original_manifest": true,
+    "same_prediction_as_20261013_current_question_run": 1000,
+    "recomputed_metrics_equal_original_metrics": true
+  },
+  "selected_counts": {
+    "correct": 16,
+    "incorrect": 2,
+    "correct_jargon": 10,
+    "correct_normal": 6
+  },
+  "examples": [
+    {
+      "id": "BH09002",
+      "text": "A：这个事情可以继续谈。 用户A：这笔钱别直接碰，先过一下料卡。 用户B：后面谁来处理？ 用户A：流程分开做，别把事情都放在一处。 A：这事知道的人越少越好。",
+      "label": "jargon",
+      "category": "money_mule_laundering",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09002",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "money_mule_laundering",
+        "risk_level": "medium_high",
+        "emotion_tag": "规避",
+        "sentiment_score": 0,
+        "arousal_score": 4,
+        "suspicion_score": 86,
+        "has_black_terms": 1,
+        "black_terms": "料卡",
+        "dialogue": "A：这个事情可以继续谈。 用户A：这笔钱别直接碰，先过一下料卡。 用户B：后面谁来处理？ 用户A：流程分开做，别把事情都放在一处。 A：这事知道的人越少越好。",
+        "judgment": "较高风险，存在明显黑话嫌疑",
+        "rationale": "存在资金转移、分流和规避痕迹语境，黑话集中于跑分、车手、水房等高风险领域。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.8485,
+      "p_normal": 0.1515,
+      "confidence": 0.3863,
+      "answer_confidence": 0.8485,
+      "latency_ms": 28.44570000161184,
+      "token_stats": {
+        "state_tokens": 56,
+        "state_tokens_used": 56,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.8485,
+              "B": 0.1515
+            },
+            "confidence": 0.3863,
+            "answer_confidence": 0.8485,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 147,
+          "output_tokens": 0,
+          "state_tokens": 56,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 2,
+      "finished_at": "2026-10-16T20:20:26.394+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09012",
+      "text": "A：你先别急。 甲：这笔钱别直接碰，先过一下走账。 B：我只负责收还是还要再转？ 甲：你先按我说的做，剩下的有人对接。 A：你先配合，后面自然有人接。",
+      "label": "jargon",
+      "category": "money_mule_laundering",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09012",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "money_mule_laundering",
+        "risk_level": "high",
+        "emotion_tag": "紧张",
+        "sentiment_score": -1,
+        "arousal_score": 5,
+        "suspicion_score": 98,
+        "has_black_terms": 1,
+        "black_terms": "走账",
+        "dialogue": "A：你先别急。 甲：这笔钱别直接碰，先过一下走账。 B：我只负责收还是还要再转？ 甲：你先按我说的做，剩下的有人对接。 A：你先配合，后面自然有人接。",
+        "judgment": "高风险，黑话与异常语境高度吻合",
+        "rationale": "存在资金转移、分流和规避痕迹语境，黑话集中于跑分、车手、水房等高风险领域。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.9233,
+      "p_normal": 0.0767,
+      "confidence": 0.6096,
+      "answer_confidence": 0.9233,
+      "latency_ms": 18.94470000115689,
+      "token_stats": {
+        "state_tokens": 54,
+        "state_tokens_used": 54,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.9233,
+              "B": 0.0767
+            },
+            "confidence": 0.6096,
+            "answer_confidence": 0.9233,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 145,
+          "output_tokens": 0,
+          "state_tokens": 54,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 12,
+      "finished_at": "2026-10-16T20:20:26.661+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09003",
+      "text": "A：先说重点。 甲：资料条件差一点没关系，做一下背债就能继续走流程。 用户B：为什么听起来不太对劲？ 甲：你刚问的那一步，其实就是砍头息。 甲：很多人都是这么走的，不影响拿款。 A：今天处理效率最高，拖久了不好说。",
+      "label": "jargon",
+      "category": "loan_fraud",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09003",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "loan_fraud",
+        "risk_level": "medium_high",
+        "emotion_tag": "利诱",
+        "sentiment_score": 0,
+        "arousal_score": 3,
+        "suspicion_score": 84,
+        "has_black_terms": 1,
+        "black_terms": "背债;砍头息",
+        "dialogue": "A：先说重点。 甲：资料条件差一点没关系，做一下背债就能继续走流程。 用户B：为什么听起来不太对劲？ 甲：你刚问的那一步，其实就是砍头息。 甲：很多人都是这么走的，不影响拿款。 A：今天处理效率最高，拖久了不好说。",
+        "judgment": "中高风险，建议人工复核",
+        "rationale": "含贷款诈骗相关黑话，且伴随诱导、弱化风险或催促决策语境。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.7291,
+      "p_normal": 0.2709,
+      "confidence": 0.1572,
+      "answer_confidence": 0.7291,
+      "latency_ms": 19.714599999133497,
+      "token_stats": {
+        "state_tokens": 71,
+        "state_tokens_used": 71,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.7291,
+              "B": 0.2709
+            },
+            "confidence": 0.1572,
+            "answer_confidence": 0.7291,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 162,
+          "output_tokens": 0,
+          "state_tokens": 71,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 3,
+      "finished_at": "2026-10-16T20:20:26.417+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09010",
+      "text": "A：目前还来得及处理。 A：征信花了也别急，我们这边能处理背债这个环节。 用户B：这个不是有风险吗？ A：后面还会涉及包装资料，但你先别担心。 A：先把流程做完，到账后你就明白了。 A：这事知道的人越少越好。",
+      "label": "jargon",
+      "category": "loan_fraud",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09010",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "loan_fraud",
+        "risk_level": "high",
+        "emotion_tag": "焦虑",
+        "sentiment_score": 1,
+        "arousal_score": 3,
+        "suspicion_score": 96,
+        "has_black_terms": 1,
+        "black_terms": "背债;包装资料",
+        "dialogue": "A：目前还来得及处理。 A：征信花了也别急，我们这边能处理背债这个环节。 用户B：这个不是有风险吗？ A：后面还会涉及包装资料，但你先别担心。 A：先把流程做完，到账后你就明白了。 A：这事知道的人越少越好。",
+        "judgment": "高风险，黑话与异常语境高度吻合",
+        "rationale": "含贷款诈骗相关黑话，且伴随诱导、弱化风险或催促决策语境。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.5588,
+      "p_normal": 0.4412,
+      "confidence": 0.01,
+      "answer_confidence": 0.5588,
+      "latency_ms": 22.316500002489192,
+      "token_stats": {
+        "state_tokens": 71,
+        "state_tokens_used": 71,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.5588,
+              "B": 0.4412
+            },
+            "confidence": 0.01,
+            "answer_confidence": 0.5588,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 162,
+          "output_tokens": 0,
+          "state_tokens": 71,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 10,
+      "finished_at": "2026-10-16T20:20:26.609+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09005",
+      "text": "A：这个事情可以继续谈。 A：新手先从低金额做，后面单子会更稳定。 B：中间会不会有风险？ A：现在不能停，停了就算刷手，前面的钱不好退。 B：能不能只做一单？ A：通常不行，这边要按任务链完成。  A：今天处理效率最高，拖久了不好说。",
+      "label": "jargon",
+      "category": "brushing_fraud",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09005",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "brushing_fraud",
+        "risk_level": "medium_high",
+        "emotion_tag": "施压",
+        "sentiment_score": -2,
+        "arousal_score": 2,
+        "suspicion_score": 89,
+        "has_black_terms": 1,
+        "black_terms": "连单;刷手",
+        "dialogue": "A：这个事情可以继续谈。 A：新手先从低金额做，后面单子会更稳定。 B：中间会不会有风险？ A：现在不能停，停了就算刷手，前面的钱不好退。 B：能不能只做一单？ A：通常不行，这边要按任务链完成。  A：今天处理效率最高，拖久了不好说。",
+        "judgment": "较高风险，存在明显黑话嫌疑",
+        "rationale": "含刷单诈骗高频黑话，典型表现为先付费、卡单补单、断单恐吓与返现诱导。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.7116,
+      "p_normal": 0.2884,
+      "confidence": 0.1334,
+      "answer_confidence": 0.7116,
+      "latency_ms": 29.14289999898756,
+      "token_stats": {
+        "state_tokens": 81,
+        "state_tokens_used": 81,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.7116,
+              "B": 0.2884
+            },
+            "confidence": 0.1334,
+            "answer_confidence": 0.7116,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 172,
+          "output_tokens": 0,
+          "state_tokens": 81,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 5,
+      "finished_at": "2026-10-16T20:20:26.478+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09013",
+      "text": "A：这个事情可以继续谈。 用户A：兼职很简单，先做几单小额任务就行。 乙：是不是需要自己先出钱？ 用户A：先垫付一笔，系统确认后本金和佣金一起返。 乙：那如果我现在不想做了呢？ 用户A：别急，先把这一步过完，不然就容易卡单。 A：别在外面多说，照着做就行。",
+      "label": "jargon",
+      "category": "brushing_fraud",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09013",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "brushing_fraud",
+        "risk_level": "high",
+        "emotion_tag": "诱导",
+        "sentiment_score": -1,
+        "arousal_score": 4,
+        "suspicion_score": 94,
+        "has_black_terms": 1,
+        "black_terms": "返现;垫付;卡单",
+        "dialogue": "A：这个事情可以继续谈。 用户A：兼职很简单，先做几单小额任务就行。 乙：是不是需要自己先出钱？ 用户A：先垫付一笔，系统确认后本金和佣金一起返。 乙：那如果我现在不想做了呢？ 用户A：别急，先把这一步过完，不然就容易卡单。 A：别在外面多说，照着做就行。",
+        "judgment": "高风险，黑话与异常语境高度吻合",
+        "rationale": "含刷单诈骗高频黑话，典型表现为先付费、卡单补单、断单恐吓与返现诱导。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.9337,
+      "p_normal": 0.0663,
+      "confidence": 0.6479,
+      "answer_confidence": 0.9337,
+      "latency_ms": 23.821400001907023,
+      "token_stats": {
+        "state_tokens": 96,
+        "state_tokens_used": 96,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.9337,
+              "B": 0.0663
+            },
+            "confidence": 0.6479,
+            "answer_confidence": 0.9337,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 187,
+          "output_tokens": 0,
+          "state_tokens": 96,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 13,
+      "finished_at": "2026-10-16T20:20:26.688+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09015",
+      "text": "A：目前还来得及处理。 A：今晚菠菜的节奏不错，别乱停。 用户B：要充多少才合适？ A：别停，情绪一乱更容易出错。 A：先把这一步做完，再看后面。",
+      "label": "jargon",
+      "category": "gambling_slang",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09015",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "gambling_slang",
+        "risk_level": "high",
+        "emotion_tag": "侥幸",
+        "sentiment_score": -1,
+        "arousal_score": 5,
+        "suspicion_score": 91,
+        "has_black_terms": 1,
+        "black_terms": "菠菜",
+        "dialogue": "A：目前还来得及处理。 A：今晚菠菜的节奏不错，别乱停。 用户B：要充多少才合适？ A：别停，情绪一乱更容易出错。 A：先把这一步做完，再看后面。",
+        "judgment": "较高风险，存在明显黑话嫌疑",
+        "rationale": "博彩黑话与持续加码、追损、跟单等异常语境共现，风险明显。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.7639,
+      "p_normal": 0.2361,
+      "confidence": 0.2115,
+      "answer_confidence": 0.7639,
+      "latency_ms": 15.894500000285916,
+      "token_stats": {
+        "state_tokens": 54,
+        "state_tokens_used": 54,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.7639,
+              "B": 0.2361
+            },
+            "confidence": 0.2115,
+            "answer_confidence": 0.7639,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 145,
+          "output_tokens": 0,
+          "state_tokens": 54,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 15,
+      "finished_at": "2026-10-16T20:20:26.727+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09031",
+      "text": "A：先说重点。 用户A：先小一点，后面再看盘口。 用户B：我刚刚已经输了两把。 用户A：先别慌，按计划来。 用户A：这把不行就用狗庄，别直接撤。 A：今天处理效率最高，拖久了不好说。",
+      "label": "jargon",
+      "category": "gambling_slang",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09031",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "gambling_slang",
+        "risk_level": "medium_high",
+        "emotion_tag": "侥幸",
+        "sentiment_score": -1,
+        "arousal_score": 3,
+        "suspicion_score": 84,
+        "has_black_terms": 1,
+        "black_terms": "菠菜;狗庄",
+        "dialogue": "A：先说重点。 用户A：先小一点，后面再看盘口。 用户B：我刚刚已经输了两把。 用户A：先别慌，按计划来。 用户A：这把不行就用狗庄，别直接撤。 A：今天处理效率最高，拖久了不好说。",
+        "judgment": "中高风险，建议人工复核",
+        "rationale": "博彩黑话与持续加码、追损、跟单等异常语境共现，风险明显。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.75,
+      "p_normal": 0.25,
+      "confidence": 0.1887,
+      "answer_confidence": 0.75,
+      "latency_ms": 20.610100000340026,
+      "token_stats": {
+        "state_tokens": 67,
+        "state_tokens_used": 67,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.75,
+              "B": 0.25
+            },
+            "confidence": 0.1887,
+            "answer_confidence": 0.75,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 158,
+          "output_tokens": 0,
+          "state_tokens": 67,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 31,
+      "finished_at": "2026-10-16T20:20:27.079+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09016",
+      "text": "A：我大概明白你的情况了。 A：目前款项还没释放，需要先做校验。 B：为什么还要我再转一笔？ A：先走一下专员通道，完成后会一并返还。 A：先把这一步做完，再看后面。",
+      "label": "jargon",
+      "category": "refund_or_impersonation_fraud",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09016",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "refund_or_impersonation_fraud",
+        "risk_level": "medium_high",
+        "emotion_tag": "催促",
+        "sentiment_score": 1,
+        "arousal_score": 3,
+        "suspicion_score": 82,
+        "has_black_terms": 1,
+        "black_terms": "回流款;专员通道",
+        "dialogue": "A：我大概明白你的情况了。 A：目前款项还没释放，需要先做校验。 B：为什么还要我再转一笔？ A：先走一下专员通道，完成后会一并返还。 A：先把这一步做完，再看后面。",
+        "judgment": "中高风险，建议人工复核",
+        "rationale": "以退款、解冻、验证等名义要求继续操作或转账，属于典型冒充客服/退款诈骗语境。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.6667,
+      "p_normal": 0.3333,
+      "confidence": 0.0818,
+      "answer_confidence": 0.6667,
+      "latency_ms": 18.077500000799773,
+      "token_stats": {
+        "state_tokens": 61,
+        "state_tokens_used": 61,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.6667,
+              "B": 0.3333
+            },
+            "confidence": 0.0818,
+            "answer_confidence": 0.6667,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 152,
+          "output_tokens": 0,
+          "state_tokens": 61,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 16,
+      "finished_at": "2026-10-16T20:20:26.747+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09006",
+      "text": "A：这个事情可以继续谈。 用户A：前面先把聊天氛围铺好，投资话题后面再带。 用户B：是不是得先把信任做足？ 用户A：别太明显，先让对方觉得你是真关心。 A：今天处理效率最高，拖久了不好说。",
+      "label": "jargon",
+      "category": "romance_investment_fraud",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09006",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "romance_investment_fraud",
+        "risk_level": "high",
+        "emotion_tag": "伪关心",
+        "sentiment_score": 1,
+        "arousal_score": 5,
+        "suspicion_score": 90,
+        "has_black_terms": 1,
+        "black_terms": "养猪",
+        "dialogue": "A：这个事情可以继续谈。 用户A：前面先把聊天氛围铺好，投资话题后面再带。 用户B：是不是得先把信任做足？ 用户A：别太明显，先让对方觉得你是真关心。 A：今天处理效率最高，拖久了不好说。",
+        "judgment": "较高风险，存在明显黑话嫌疑",
+        "rationale": "黑话与情感操控语境共现，符合交友投资诈骗中的信任培养与后续诱导特征。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.5574,
+      "p_normal": 0.4426,
+      "confidence": 0.0095,
+      "answer_confidence": 0.5574,
+      "latency_ms": 28.602400001545902,
+      "token_stats": {
+        "state_tokens": 63,
+        "state_tokens_used": 63,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.5574,
+              "B": 0.4426
+            },
+            "confidence": 0.0095,
+            "answer_confidence": 0.5574,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 154,
+          "output_tokens": 0,
+          "state_tokens": 63,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 6,
+      "finished_at": "2026-10-16T20:20:26.511+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09001",
+      "text": "A：别人找我做车手，我不太清楚风险。 乙：这类情况建议先咨询专业人士，不要轻易参与。 A：那像洗征信这种做法也一样吗？ 乙：是的，这类说法大多伴随较高风险。 B：不能只看一个词就下结论。",
+      "label": "normal",
+      "category": "legal_or_compliance_consultation",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09001",
+        "split": "test",
+        "label": "normal",
+        "detect_label": 0,
+        "category": "legal_or_compliance_consultation",
+        "risk_level": "low_or_contextual",
+        "emotion_tag": "谨慎",
+        "sentiment_score": 1,
+        "arousal_score": 1,
+        "suspicion_score": 1,
+        "has_black_terms": 1,
+        "black_terms": "车手;洗征信",
+        "dialogue": "A：别人找我做车手，我不太清楚风险。 乙：这类情况建议先咨询专业人士，不要轻易参与。 A：那像洗征信这种做法也一样吗？ 乙：是的，这类说法大多伴随较高风险。 B：不能只看一个词就下结论。",
+        "judgment": "无明显黑话嫌疑",
+        "rationale": "出现风险词但语境为咨询法律风险、合规边界或自我保护。"
+      },
+      "prediction": "normal",
+      "native_choice": "B",
+      "p_jargon": 0.1603,
+      "p_normal": 0.8397,
+      "confidence": 0.3651,
+      "answer_confidence": 0.8397,
+      "latency_ms": 818.157900001097,
+      "token_stats": {
+        "state_tokens": 66,
+        "state_tokens_used": 66,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "B",
+            "probabilities": {
+              "A": 0.1603,
+              "B": 0.8397
+            },
+            "confidence": 0.3651,
+            "answer_confidence": 0.8397,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 157,
+          "output_tokens": 0,
+          "state_tokens": 66,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 1,
+      "finished_at": "2026-10-16T20:20:26.362+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09007",
+      "text": "A：目前还来得及处理。 用户A：社区讲座提醒，遇到垫付要先核验。 用户B：是的，很多骗局都会先包装成正规流程。 用户A：像砍头息这种词也一样，出现时要格外小心。 B：正常情况下按正规流程处理就行。",
+      "label": "normal",
+      "category": "anti_fraud_education",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09007",
+        "split": "test",
+        "label": "normal",
+        "detect_label": 0,
+        "category": "anti_fraud_education",
+        "risk_level": "low_or_contextual",
+        "emotion_tag": "理性",
+        "sentiment_score": 1,
+        "arousal_score": 2,
+        "suspicion_score": 21,
+        "has_black_terms": 1,
+        "black_terms": "垫付;砍头息",
+        "dialogue": "A：目前还来得及处理。 用户A：社区讲座提醒，遇到垫付要先核验。 用户B：是的，很多骗局都会先包装成正规流程。 用户A：像砍头息这种词也一样，出现时要格外小心。 B：正常情况下按正规流程处理就行。",
+        "judgment": "存在词面风险，但当前更像正常语境",
+        "rationale": "虽然包含风险词，但整体语境为反诈宣传、培训或防骗提醒。"
+      },
+      "prediction": "normal",
+      "native_choice": "B",
+      "p_jargon": 0.3074,
+      "p_normal": 0.6926,
+      "confidence": 0.1099,
+      "answer_confidence": 0.6926,
+      "latency_ms": 20.6475999984832,
+      "token_stats": {
+        "state_tokens": 69,
+        "state_tokens_used": 69,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "B",
+            "probabilities": {
+              "A": 0.3074,
+              "B": 0.6926
+            },
+            "confidence": 0.1099,
+            "answer_confidence": 0.6926,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 160,
+          "output_tokens": 0,
+          "state_tokens": 69,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 7,
+      "finished_at": "2026-10-16T20:20:26.535+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09009",
+      "text": "A：目前还来得及处理。 甲：房贷审批主要看哪些材料？ 用户B：征信和收入证明都要看。 B：总之先核实来源最重要。",
+      "label": "normal",
+      "category": "normal_finance_or_service",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09009",
+        "split": "test",
+        "label": "normal",
+        "detect_label": 0,
+        "category": "normal_finance_or_service",
+        "risk_level": "low_or_contextual",
+        "emotion_tag": "专业",
+        "sentiment_score": -1,
+        "arousal_score": 2,
+        "suspicion_score": 24,
+        "has_black_terms": 1,
+        "black_terms": "征信",
+        "dialogue": "A：目前还来得及处理。 甲：房贷审批主要看哪些材料？ 用户B：征信和收入证明都要看。 B：总之先核实来源最重要。",
+        "judgment": "存在词面风险，但当前更像正常语境",
+        "rationale": "金融或客服语境正常，虽含相关词，但未体现行业黑话的异常交互方式。"
+      },
+      "prediction": "normal",
+      "native_choice": "B",
+      "p_jargon": 0.0103,
+      "p_normal": 0.9897,
+      "confidence": 0.917,
+      "answer_confidence": 0.9897,
+      "latency_ms": 21.92730000024312,
+      "token_stats": {
+        "state_tokens": 38,
+        "state_tokens_used": 38,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "B",
+            "probabilities": {
+              "A": 0.0103,
+              "B": 0.9897
+            },
+            "confidence": 0.917,
+            "answer_confidence": 0.9897,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 129,
+          "output_tokens": 0,
+          "state_tokens": 38,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 9,
+      "finished_at": "2026-10-16T20:20:26.584+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09026",
+      "text": "A：先说重点。 甲：仓库说这件货少发了一件，需要补单。 用户B：好的，我去联系售后。 B：这种情况还是以官方说明为准。",
+      "label": "normal",
+      "category": "daily_life_hard_negative",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09026",
+        "split": "test",
+        "label": "normal",
+        "detect_label": 0,
+        "category": "daily_life_hard_negative",
+        "risk_level": "low_or_contextual",
+        "emotion_tag": "平静",
+        "sentiment_score": 2,
+        "arousal_score": 1,
+        "suspicion_score": 13,
+        "has_black_terms": 1,
+        "black_terms": "补单",
+        "dialogue": "A：先说重点。 甲：仓库说这件货少发了一件，需要补单。 用户B：好的，我去联系售后。 B：这种情况还是以官方说明为准。",
+        "judgment": "低风险，需结合上下文复核",
+        "rationale": "包含与黑话同形的词，但完全处于日常生活、运动、游戏或普通事务语境。"
+      },
+      "prediction": "normal",
+      "native_choice": "B",
+      "p_jargon": 0.4552,
+      "p_normal": 0.5448,
+      "confidence": 0.0058,
+      "answer_confidence": 0.5448,
+      "latency_ms": 14.505700000881916,
+      "token_stats": {
+        "state_tokens": 41,
+        "state_tokens_used": 41,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "B",
+            "probabilities": {
+              "A": 0.4552,
+              "B": 0.5448
+            },
+            "confidence": 0.0058,
+            "answer_confidence": 0.5448,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 132,
+          "output_tokens": 0,
+          "state_tokens": 41,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 26,
+      "finished_at": "2026-10-16T20:20:26.952+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09034",
+      "text": "A：你先别急。 A：标注时不能只看关键词，比如车手也可能是正常语境。 用户B：对，还得结合上下文和交互方式一起判断。 A：除了车手，菠菜也要做同形异义建模。 B：总之先核实来源最重要。",
+      "label": "normal",
+      "category": "research_or_annotation_discussion",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09034",
+        "split": "test",
+        "label": "normal",
+        "detect_label": 0,
+        "category": "research_or_annotation_discussion",
+        "risk_level": "low_or_contextual",
+        "emotion_tag": "分析",
+        "sentiment_score": 2,
+        "arousal_score": 3,
+        "suspicion_score": 15,
+        "has_black_terms": 1,
+        "black_terms": "车手;菠菜",
+        "dialogue": "A：你先别急。 A：标注时不能只看关键词，比如车手也可能是正常语境。 用户B：对，还得结合上下文和交互方式一起判断。 A：除了车手，菠菜也要做同形异义建模。 B：总之先核实来源最重要。",
+        "judgment": "低风险，需结合上下文复核",
+        "rationale": "该样本属于数据标注、算法讨论或研究设计场景，不构成异常行为表达。"
+      },
+      "prediction": "normal",
+      "native_choice": "B",
+      "p_jargon": 0.1152,
+      "p_normal": 0.8848,
+      "confidence": 0.4847,
+      "answer_confidence": 0.8848,
+      "latency_ms": 22.10399999967194,
+      "token_stats": {
+        "state_tokens": 65,
+        "state_tokens_used": 65,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "B",
+            "probabilities": {
+              "A": 0.1152,
+              "B": 0.8848
+            },
+            "confidence": 0.4847,
+            "answer_confidence": 0.8848,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 156,
+          "output_tokens": 0,
+          "state_tokens": 65,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 34,
+      "finished_at": "2026-10-16T20:20:27.146+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09138",
+      "text": "A：目前还来得及处理。 A：最近看到一篇报道，专门解释了车手的含义。 乙：看完才知道它背后对应的是具体骗局。 A：那个案例里还有杀猪盘这种表达。 B：所以还是要看具体上下文。",
+      "label": "normal",
+      "category": "news_or_case_discussion",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09138",
+        "split": "test",
+        "label": "normal",
+        "detect_label": 0,
+        "category": "news_or_case_discussion",
+        "risk_level": "low_or_contextual",
+        "emotion_tag": "讨论",
+        "sentiment_score": 2,
+        "arousal_score": 3,
+        "suspicion_score": 9,
+        "has_black_terms": 1,
+        "black_terms": "车手;杀猪盘",
+        "dialogue": "A：目前还来得及处理。 A：最近看到一篇报道，专门解释了车手的含义。 乙：看完才知道它背后对应的是具体骗局。 A：那个案例里还有杀猪盘这种表达。 B：所以还是要看具体上下文。",
+        "judgment": "低风险，需结合上下文复核",
+        "rationale": "风险词出现在新闻、案例复盘或警方通报讨论中，整体仍属正常语境。"
+      },
+      "prediction": "normal",
+      "native_choice": "B",
+      "p_jargon": 0.1314,
+      "p_normal": 0.8686,
+      "confidence": 0.4387,
+      "answer_confidence": 0.8686,
+      "latency_ms": 20.602700002200436,
+      "token_stats": {
+        "state_tokens": 55,
+        "state_tokens_used": 55,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "B",
+            "probabilities": {
+              "A": 0.1314,
+              "B": 0.8686
+            },
+            "confidence": 0.4387,
+            "answer_confidence": 0.8686,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 146,
+          "output_tokens": 0,
+          "state_tokens": 55,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 138,
+      "finished_at": "2026-10-16T20:20:29.738+08:00",
+      "config_id": "A",
+      "correct": true
+    },
+    {
+      "id": "BH09004",
+      "text": "A：先说重点。 A：这笔订单申请退款后多久到账？ 用户B：通常会按原支付路径退回。 B：正常情况下按正规流程处理就行。",
+      "label": "normal",
+      "category": "normal_finance_or_service",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09004",
+        "split": "test",
+        "label": "normal",
+        "detect_label": 0,
+        "category": "normal_finance_or_service",
+        "risk_level": "low_or_contextual",
+        "emotion_tag": "礼貌",
+        "sentiment_score": -2,
+        "arousal_score": 3,
+        "suspicion_score": 24,
+        "has_black_terms": 1,
+        "black_terms": "退款",
+        "dialogue": "A：先说重点。 A：这笔订单申请退款后多久到账？ 用户B：通常会按原支付路径退回。 B：正常情况下按正规流程处理就行。",
+        "judgment": "存在词面风险，但当前更像正常语境",
+        "rationale": "金融或客服语境正常，虽含相关词，但未体现行业黑话的异常交互方式。"
+      },
+      "prediction": "jargon",
+      "native_choice": "A",
+      "p_jargon": 0.628,
+      "p_normal": 0.372,
+      "confidence": 0.0478,
+      "answer_confidence": 0.628,
+      "latency_ms": 25.046199996722862,
+      "token_stats": {
+        "state_tokens": 41,
+        "state_tokens_used": 41,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "A",
+            "probabilities": {
+              "A": 0.628,
+              "B": 0.372
+            },
+            "confidence": 0.0478,
+            "answer_confidence": 0.628,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 132,
+          "output_tokens": 0,
+          "state_tokens": 41,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 4,
+      "finished_at": "2026-10-16T20:20:26.446+08:00",
+      "config_id": "A",
+      "correct": false
+    },
+    {
+      "id": "BH09011",
+      "text": "A：这个事情可以继续谈。 甲：前面先把聊天氛围铺好，投资话题后面再带。 用户B：那什么时候开始推进？ 甲：对，先把关系做稳，再慢慢往收益上引。 甲：后面会慢慢过渡到带单，别一步到位。 A：你先配合，后面自然有人接。",
+      "label": "jargon",
+      "category": "romance_investment_fraud",
+      "source": "user_provided_annotation_method_unverified",
+      "split": "test",
+      "original_record": {
+        "id": "BH09011",
+        "split": "test",
+        "label": "suspicious",
+        "detect_label": 1,
+        "category": "romance_investment_fraud",
+        "risk_level": "high",
+        "emotion_tag": "伪关心",
+        "sentiment_score": 2,
+        "arousal_score": 4,
+        "suspicion_score": 92,
+        "has_black_terms": 1,
+        "black_terms": "收网;带单",
+        "dialogue": "A：这个事情可以继续谈。 甲：前面先把聊天氛围铺好，投资话题后面再带。 用户B：那什么时候开始推进？ 甲：对，先把关系做稳，再慢慢往收益上引。 甲：后面会慢慢过渡到带单，别一步到位。 A：你先配合，后面自然有人接。",
+        "judgment": "较高风险，存在明显黑话嫌疑",
+        "rationale": "黑话与情感操控语境共现，符合交友投资诈骗中的信任培养与后续诱导特征。"
+      },
+      "prediction": "normal",
+      "native_choice": "B",
+      "p_jargon": 0.0972,
+      "p_normal": 0.9028,
+      "confidence": 0.5399,
+      "answer_confidence": 0.9028,
+      "latency_ms": 27.214700003241887,
+      "token_stats": {
+        "state_tokens": 74,
+        "state_tokens_used": 74,
+        "state_tokens_dropped": 0,
+        "truncated": false
+      },
+      "raw_output": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "jargon_detection": {
+            "type": "choice",
+            "choice": "B",
+            "probabilities": {
+              "A": 0.0972,
+              "B": 0.9028
+            },
+            "confidence": 0.5399,
+            "answer_confidence": 0.9028,
+            "action": {
+              "act_probability": 1.0
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 165,
+          "output_tokens": 0,
+          "state_tokens": 74,
+          "state_tokens_dropped": 0,
+          "truncated": false,
+          "truncated_questions": []
+        }
+      },
+      "index": 11,
+      "finished_at": "2026-10-16T20:20:26.639+08:00",
+      "config_id": "A",
+      "correct": false
+    }
+  ],
+  "updated_at": "2026-10-16T21:31:57+08:00",
+  "category_summary": [
+    {
+      "category": "refund_or_impersonation_fraud",
+      "category_zh": "退款或冒充客服诈骗相关",
+      "samples": 97,
+      "accuracy": 0.9381443298969072,
+      "tn": 0,
+      "fp": 0,
+      "fn": 6,
+      "tp": 91,
+      "correct": 91,
+      "truth_labels": {
+        "jargon": 97
+      }
+    },
+    {
+      "category": "daily_life_hard_negative",
+      "category_zh": "日常生活易混淆文本",
+      "samples": 75,
+      "accuracy": 0.8666666666666667,
+      "tn": 65,
+      "fp": 10,
+      "fn": 0,
+      "tp": 0,
+      "correct": 65,
+      "truth_labels": {
+        "normal": 75
+      }
+    },
+    {
+      "category": "brushing_fraud",
+      "category_zh": "刷单诈骗相关",
+      "samples": 116,
+      "accuracy": 0.7758620689655172,
+      "tn": 0,
+      "fp": 0,
+      "fn": 26,
+      "tp": 90,
+      "correct": 90,
+      "truth_labels": {
+        "jargon": 116
+      }
+    },
+    {
+      "category": "research_or_annotation_discussion",
+      "category_zh": "研究与标注讨论",
+      "samples": 34,
+      "accuracy": 0.7647058823529411,
+      "tn": 26,
+      "fp": 8,
+      "fn": 0,
+      "tp": 0,
+      "correct": 26,
+      "truth_labels": {
+        "normal": 34
+      }
+    },
+    {
+      "category": "normal_finance_or_service",
+      "category_zh": "正常金融与服务咨询",
+      "samples": 75,
+      "accuracy": 0.76,
+      "tn": 57,
+      "fp": 18,
+      "fn": 0,
+      "tp": 0,
+      "correct": 57,
+      "truth_labels": {
+        "normal": 75
+      }
+    },
+    {
+      "category": "legal_or_compliance_consultation",
+      "category_zh": "法律与合规咨询",
+      "samples": 78,
+      "accuracy": 0.7307692307692307,
+      "tn": 57,
+      "fp": 21,
+      "fn": 0,
+      "tp": 0,
+      "correct": 57,
+      "truth_labels": {
+        "normal": 78
+      }
+    },
+    {
+      "category": "news_or_case_discussion",
+      "category_zh": "新闻与案例讨论",
+      "samples": 40,
+      "accuracy": 0.725,
+      "tn": 29,
+      "fp": 11,
+      "fn": 0,
+      "tp": 0,
+      "correct": 29,
+      "truth_labels": {
+        "normal": 40
+      }
+    },
+    {
+      "category": "money_mule_laundering",
+      "category_zh": "资金转移与跑分相关",
+      "samples": 79,
+      "accuracy": 0.7215189873417721,
+      "tn": 0,
+      "fp": 0,
+      "fn": 22,
+      "tp": 57,
+      "correct": 57,
+      "truth_labels": {
+        "jargon": 79
+      }
+    },
+    {
+      "category": "gambling_slang",
+      "category_zh": "赌博暗语相关",
+      "samples": 91,
+      "accuracy": 0.6483516483516484,
+      "tn": 0,
+      "fp": 0,
+      "fn": 32,
+      "tp": 59,
+      "correct": 59,
+      "truth_labels": {
+        "jargon": 91
+      }
+    },
+    {
+      "category": "anti_fraud_education",
+      "category_zh": "反诈教育",
+      "samples": 88,
+      "accuracy": 0.625,
+      "tn": 55,
+      "fp": 33,
+      "fn": 0,
+      "tp": 0,
+      "correct": 55,
+      "truth_labels": {
+        "normal": 88
+      }
+    },
+    {
+      "category": "loan_fraud",
+      "category_zh": "贷款诈骗相关",
+      "samples": 117,
+      "accuracy": 0.6068376068376068,
+      "tn": 0,
+      "fp": 0,
+      "fn": 46,
+      "tp": 71,
+      "correct": 71,
+      "truth_labels": {
+        "jargon": 117
+      }
+    },
+    {
+      "category": "romance_investment_fraud",
+      "category_zh": "情感引导投资诈骗相关",
+      "samples": 110,
+      "accuracy": 0.5636363636363636,
+      "tn": 0,
+      "fp": 0,
+      "fn": 48,
+      "tp": 62,
+      "correct": 62,
+      "truth_labels": {
+        "jargon": 110
+      }
+    }
+  ],
+  "historical_config_comparison": [
+    {
+      "name": "原 D 配置",
+      "source": "outputs/runs/20261012_225421_332812_2d1cba/comparison/D_original/metrics.json",
+      "sha256": "6a6233849b503c7e85fd8439fa9451419b867a8f9e474de1ec3a3f48db07f64a",
+      "metrics": {
+        "samples": 1000,
+        "normal": 390,
+        "jargon": 610,
+        "accuracy": 0.435,
+        "precision": 0.7419354838709677,
+        "recall": 0.11311475409836065,
+        "f1": 0.19630156472261737,
+        "macro_f1": 0.38034045082699874,
+        "confusion_matrix": [
+          [
+            366,
+            24
+          ],
+          [
+            541,
+            69
+          ]
+        ],
+        "matrix_labels": [
+          "normal",
+          "jargon"
+        ],
+        "tn": 366,
+        "fp": 24,
+        "fn": 541,
+        "tp": 69,
+        "undefined_metrics": [],
+        "note": "",
+        "macro_f1_convention": "fixed two labels; undefined per-label F1 contributes zero"
+      }
+    },
+    {
+      "name": "中性 A/B 选项配置",
+      "source": "outputs/runs/20261012_225421_332812_2d1cba/comparison/D_neutral/metrics.json",
+      "sha256": "7d52141e0d915d0d6219182aaccef664ba27e9468618d078123e691519d64544",
+      "metrics": {
+        "samples": 1000,
+        "normal": 390,
+        "jargon": 610,
+        "accuracy": 0.648,
+        "precision": 0.7986111111111112,
+        "recall": 0.5655737704918032,
+        "f1": 0.6621880998080614,
+        "macro_f1": 0.6473779747474545,
+        "confusion_matrix": [
+          [
+            303,
+            87
+          ],
+          [
+            265,
+            345
+          ]
+        ],
+        "matrix_labels": [
+          "normal",
+          "jargon"
+        ],
+        "tn": 303,
+        "fp": 87,
+        "fn": 265,
+        "tp": 345,
+        "undefined_metrics": [],
+        "note": "",
+        "macro_f1_convention": "fixed two labels; undefined per-label F1 contributes zero"
+      }
+    },
+    {
+      "name": "短描述＋短边界 S_S",
+      "source": "outputs/runs/20261012_234100_081694_7b7f69/comparison/S_S/metrics.json",
+      "sha256": "b35f546ae4bd7cc7d92098dc65a8b2bac8f2001fff74bcc0a14705b82eaad247",
+      "metrics": {
+        "samples": 1000,
+        "normal": 390,
+        "jargon": 610,
+        "accuracy": 0.69,
+        "precision": 0.7321981424148607,
+        "recall": 0.7754098360655738,
+        "f1": 0.7531847133757962,
+        "macro_f1": 0.6682590233545648,
+        "confusion_matrix": [
+          [
+            217,
+            173
+          ],
+          [
+            137,
+            473
+          ]
+        ],
+        "matrix_labels": [
+          "normal",
+          "jargon"
+        ],
+        "tn": 217,
+        "fp": 173,
+        "fn": 137,
+        "tp": 473,
+        "undefined_metrics": [],
+        "note": "",
+        "macro_f1_convention": "fixed two labels; undefined per-label F1 contributes zero"
+      }
+    },
+    {
+      "name": "当前风险语境配置",
+      "source": "outputs/logged_tests/20261016_202012_376206_55ff90/metrics.json",
+      "sha256": "9f19f9b48f2e0b85e4be65edd2ec4ff349ceb9137a0d61db4edade66607d86b6",
+      "metrics": {
+        "samples": 1000,
+        "normal": 390,
+        "jargon": 610,
+        "accuracy": 0.719,
+        "precision": 0.8097928436911488,
+        "recall": 0.7049180327868853,
+        "f1": 0.7537248028045574,
+        "macro_f1": 0.7133001196793451,
+        "confusion_matrix": [
+          [
+            289,
+            101
+          ],
+          [
+            180,
+            430
+          ]
+        ],
+        "matrix_labels": [
+          "normal",
+          "jargon"
+        ],
+        "tn": 289,
+        "fp": 101,
+        "fn": 180,
+        "tp": 430,
+        "undefined_metrics": [],
+        "note": "",
+        "macro_f1_convention": "fixed two labels; undefined per-label F1 contributes zero"
+      }
+    }
+  ]
+}

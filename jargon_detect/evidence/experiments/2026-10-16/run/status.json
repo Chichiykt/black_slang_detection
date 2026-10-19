@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "started_at": "2026-10-16T20:20:12.378+08:00",
+  "completed": 1000,
+  "expected": 1000,
+  "inference_loop_seconds": 23.70671080000102,
+  "finished_at": "2026-10-16T20:20:49.242+08:00"
+}

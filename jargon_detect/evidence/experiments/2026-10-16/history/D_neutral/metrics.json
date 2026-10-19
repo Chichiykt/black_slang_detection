@@ -1,0 +1,31 @@
+{
+  "samples": 1000,
+  "normal": 390,
+  "jargon": 610,
+  "accuracy": 0.648,
+  "precision": 0.7986111111111112,
+  "recall": 0.5655737704918032,
+  "f1": 0.6621880998080614,
+  "macro_f1": 0.6473779747474545,
+  "confusion_matrix": [
+    [
+      303,
+      87
+    ],
+    [
+      265,
+      345
+    ]
+  ],
+  "matrix_labels": [
+    "normal",
+    "jargon"
+  ],
+  "tn": 303,
+  "fp": 87,
+  "fn": 265,
+  "tp": 345,
+  "undefined_metrics": [],
+  "note": "",
+  "macro_f1_convention": "fixed two labels; undefined per-label F1 contributes zero"
+}

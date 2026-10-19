@@ -1,0 +1,19 @@
+# Copy and change only deployment paths/user to match your host.
+# The application reads its own project .env; do not duplicate it as EnvironmentFile.
+[Unit]
+Description=Local Laya dialogue detection API
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_SERVICE_USER
+WorkingDirectory=/opt/laya-jargon-api
+ExecStart=/opt/conda/envs/laya-jargon/bin/python -m app
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=120
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

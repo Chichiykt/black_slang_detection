@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "configuration_only": true,
+  "model_bundled": false,
+  "external_model_load_and_prediction": "passed",
+  "device": "cuda",
+  "missing_model_diagnostic": "passed",
+  "hash_verified_files": 7,
+  "scope": "Windows local GPU; no ModelScope download or Linux/A100 test"
+}

@@ -1,0 +1,43 @@
+{
+  "samples": 10000,
+  "dataset_sha256": "e490737c904146e1dca5cf69e5392b3dee951e9d854454844b9275a3bc1963f7",
+  "labels": {
+    "jargon": 6000,
+    "normal": 4000
+  },
+  "categories": {
+    "loan_fraud": 1100,
+    "money_mule_laundering": 900,
+    "refund_or_impersonation_fraud": 1000,
+    "gambling_slang": 900,
+    "romance_investment_fraud": 900,
+    "brushing_fraud": 1200,
+    "legal_or_compliance_consultation": 700,
+    "anti_fraud_education": 900,
+    "normal_finance_or_service": 700,
+    "daily_life_hard_negative": 900,
+    "research_or_annotation_discussion": 400,
+    "news_or_case_discussion": 400
+  },
+  "splits": {
+    "train": 8000,
+    "val": 1000,
+    "test": 1000
+  },
+  "sources": {
+    "user_provided_annotation_method_unverified": 10000
+  },
+  "duplicate_text_extra_rows": 0,
+  "cross_split_duplicate_texts": 0,
+  "conflicting_label_texts": 0,
+  "text_characters": {
+    "min": 24,
+    "max": 135,
+    "mean": 81.8783,
+    "p50": 82.0,
+    "p95": 117.0
+  },
+  "annotation_note": "User supplied labels; human annotation and collection provenance are unverified.",
+  "category_note": "Provided categories describe domains; they do not annotate homophones/abbreviations/variants.",
+  "label_target": "risk_context"
+}

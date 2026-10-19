@@ -1,0 +1,49 @@
+{
+  "python_executable": "F:\\AIWorkspace\\Envs\\laya-jargon-benchmark\\python.exe",
+  "python": "3.11.17",
+  "laya": "0.4.2",
+  "pytorch": "2.7.1+cu128",
+  "transformers": "4.57.6",
+  "cuda_available": true,
+  "cuda_runtime": "12.8",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "model": {
+    "path": "F:\\AIWorkspace\\Models\\laya-multilingual",
+    "sha256": {
+      "rl_agent_config.json": "25061739243b617ad88d1219ba6f8a9c86c5881ca28df024fa2d9b3b2fcc30c6",
+      "model.safetensors": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204",
+      "encoder/config.json": "83f6916d13ef0f556ac461f28308dc2bffa7ebeadee8ec9e2db5812020ea5bb4",
+      "tokenizer/tokenizer.json": "609d8f4c067cd3950f88594c5a802616cea245823836ef5848ee4fc40aab5b6f",
+      "tokenizer/tokenizer_config.json": "2c0c4d82d4b4bc6b4ac40b2375e067a1645f78b381a9774248d47915f33d751f",
+      "config.json": "7add7c041b53f7091e65908553af79ab3f077946e5f2312d510ae13b17c7c134"
+    },
+    "revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+    "config": {
+      "encoder": "jhu-clsp/mmBERT-base",
+      "head_layers": 2,
+      "max_len": 1024,
+      "head_max_len": 256,
+      "max_prefixes": 6,
+      "act_costs": {
+        "escalate": 0.5
+      },
+      "cost_wrong_act": 3.0,
+      "amp_dtype": "bf16",
+      "model_name": "rl-agent",
+      "temperature": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "temperature_by_options": {},
+      "training": {
+        "updates": 15987,
+        "epochs_completed": 4,
+        "hours": 4.97,
+        "world_size": 1,
+        "fine_tuned_from_checkpoint": false
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "variable": "user_confirmed_unlawful_context_definition",
+  "label_map": {
+    "A": "jargon",
+    "B": "normal"
+  },
+  "question": {
+    "type": "choice",
+    "instructions": "判断对话中的暗语是否用于违法或灰产活动。合法引用、反诈提醒、新闻报道、学术研究和合规咨询中的提及不算黑话。",
+    "criteria": {
+      "A": "暗语用于招揽、实施或掩饰违法、灰产活动。",
+      "B": "普通合法交流，或仅在合法引用、反诈、新闻、研究、合规咨询中提及暗语。"
+    }
+  }
+}

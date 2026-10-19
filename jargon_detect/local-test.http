@@ -1,0 +1,13 @@
+# Local test service. Change baseUrl if you change API_PORT in .env.
+@baseUrl = http://127.0.0.1:8002
+
+### Model readiness
+GET {{baseUrl}}/ready
+
+### Dialogue detection
+POST {{baseUrl}}/api/v1/detect
+Content-Type: application/json
+
+{
+  "dialogue": "A：为什么登录前还要短信验证？ B：这是平台的常规风控措施。"
+}

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-16T10:47:47.311929+00:00",
+  "status": "passed",
+  "platform_verified": "Windows",
+  "linux_wsl_a100": "not tested",
+  "physical_disconnect": "not tested",
+  "public_tunnel_included": false,
+  "inference_class_rules_and_schema_unchanged": true,
+  "ready": true,
+  "device": "cuda",
+  "bundled_model_used": true,
+  "unrelated_working_directory": true,
+  "real_http_cases": [
+    {
+      "dialogue": "反诈提醒：骗子常用“跑分”指代帮助转移赃款，请勿出租银行卡参与。",
+      "http_status": 200,
+      "matches_original_response": true
+    },
+    {
+      "dialogue": "招跑分车手，用你的银行卡帮我们转移诈骗款，按流水给佣金，私聊接单。",
+      "http_status": 200,
+      "matches_original_response": true
+    },
+    {
+      "dialogue": "我今天中午吃了菠菜。",
+      "http_status": 200,
+      "matches_original_response": true
+    },
+    {
+      "dialogue": "这个菠菜平台今天还能上分吗？",
+      "http_status": 200,
+      "matches_original_response": true
+    },
+    {
+      "dialogue": "明天一起去学校图书馆。",
+      "http_status": 200,
+      "matches_original_response": true
+    },
+    {
+      "dialogue": "这个商品现在正在打折。",
+      "http_status": 200,
+      "matches_original_response": true
+    },
+    {
+      "dialogue": "那个项目有特殊渠道可以操作。",
+      "http_status": 200,
+      "matches_original_response": true
+    },
+    {
+      "dialogue": "平台可以上分，今晚一起玩菠菜。",
+      "http_status": 200,
+      "matches_original_response": true
+    }
+  ],
+  "invalid_requests_checked": true,
+  "smoke_tool_passed": true,
+  "test_service_stopped": true,
+  "artifact_scope": "Historical real inference evidence from the preceding model-included build; current source-only package requires separate model download.",
+  "current_package_contains_model": false
+}

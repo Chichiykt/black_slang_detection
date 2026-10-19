@@ -1,0 +1,47 @@
+{
+  "added_at": "2026-10-16T21:38:53+08:00",
+  "source_project": "laya-jargon-benchmark",
+  "source_report": "reports/key_reports/09_test_effect_experiment_log_20261016.md",
+  "source_report_sha256": "3e0e46b1b0e12579443be0e4ed1488e0aecfad68a93e279a592708ac48e72689",
+  "delivery_report": "docs/EXPERIMENT_LOG.md",
+  "delivery_scope": "Saved offline model evaluation; not a bulk HTTP acceptance test of the delivered service.",
+  "question_and_option_order_match_delivery": true,
+  "label_map_match_delivery": true,
+  "model_reference_revision_match": true,
+  "model_reference_revision": "1720e3e3357cfe1e281542e223f8273b0890ca34",
+  "delivery_question_source_sha256": "f9f0950e6bf8cc51c0902a9b8d55d19ebd1f4a52db1c3e946382a32991749db5",
+  "delivered_run_path": "evidence/experiments/2026-10-16/run",
+  "source_run_id": "20261016_202012_376206_55ff90",
+  "metrics": {
+    "samples": 1000,
+    "normal": 390,
+    "jargon": 610,
+    "accuracy": 0.719,
+    "precision": 0.8097928436911488,
+    "recall": 0.7049180327868853,
+    "f1": 0.7537248028045574,
+    "macro_f1": 0.7133001196793451,
+    "confusion_matrix": [
+      [
+        289,
+        101
+      ],
+      [
+        180,
+        430
+      ]
+    ],
+    "matrix_labels": [
+      "normal",
+      "jargon"
+    ],
+    "tn": 289,
+    "fp": 101,
+    "fn": 180,
+    "tp": 430,
+    "undefined_metrics": [],
+    "note": "",
+    "macro_f1_convention": "fixed two labels; undefined per-label F1 contributes zero"
+  },
+  "report_changes": "Added delivery scope and rewrote links to bundled evidence; preserved experiment scores and case text."
+}
