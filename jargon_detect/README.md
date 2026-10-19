@@ -1,4 +1,4 @@
-# 黑话对话检测 ：交付版
+# 黑话对话检测 
 
 本目录包含 FastAPI 源码、配置、部署工具及实验说明，模型需从魔搭社区等来源单独下载。
 
@@ -291,7 +291,6 @@ Linux 可按 deploy/laya-jargon.service.example 配置 systemd，仅修改部署
 app 为核心服务，models 为模型放置位置说明（不含权重），tools 为自检/验收，tests 为开发测试，deploy 为服务模板，docs 为接口/模型说明，evidence 为本交付版实际验证结果。runtime 为本机运行数据，不属于发布包。
 
 开发测试见第 5 节，日常运行无需安装测试依赖。release-manifest.json 记录本源码发布文件与分类规则指纹。模型单独下载，必须保持完整目录结构；Git 的忽略规则会排除权重。
-
 
 
 
