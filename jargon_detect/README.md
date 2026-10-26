@@ -6,7 +6,9 @@
 
 SDK下载：
 pip install modelscope
+
 from modelscope import snapshot_download
+
 model_dir = snapshot_download('chichi1218/Laya_BlackSlangDetectionModelParams')
 
 Git 下载：
