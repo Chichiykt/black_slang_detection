@@ -1,6 +1,14 @@
 # 黑话对话检测 
 
 本目录包含 FastAPI 源码、配置、部署工具及实验说明，模型需从modelscope单独下载。
+模型位置：https://www.modelscope.cn/models/chichi1218/Laya_BlackSlangDetectionModelParams
+SDK下载：# 安装 ModelScope  
+pip install modelscope
+from modelscope import snapshot_download
+model_dir = snapshot_download('chichi1218/Laya_BlackSlangDetectionModelParams')
+
+Git 下载：
+git clone https://www.modelscope.cn/chichi1218/Laya_BlackSlangDetectionModelParams.git
 
 ## 1. 准备运行环境
 
